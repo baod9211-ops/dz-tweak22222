@@ -7,7 +7,8 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = 34306jtl
 
-34306jtl_FILES = Tweak.x APIClient.h ImGuiDrawView.mm font.h libTKAPIKey.a
-34306jtl_CFLAGS = -fobjc-arc
+34306jtl_FILES = Tweak.x ImGuiDrawView.mm
+34306jtl_CFLAGS = -fobjc-arc -I.
+34306jtl_LDFLAGS = -L. -lTKAPIKey
 
 include $(THEOS)/makefiles/tweak.mk
