@@ -1,14 +1,13 @@
-THEOS = $(shell pwd)/.theos
-export THEOS
+export THEOS ?= $(HOME)/theos
 
-TARGET = iphone:latest:14.0
+TARGET := iphone:clang:latest:14.0
 INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = mytweak
+TWEAK_NAME = dz
 
-mytweak_FILES = Tweak.x
-mytweak_CFLAGS = -fobjc-arc
+dz_FILES = Tweak.x
+dz_CFLAGS = -fobjc-arc
 
 include $(THEOS)/makefiles/tweak.mk
