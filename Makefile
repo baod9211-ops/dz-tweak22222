@@ -5,9 +5,9 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = dz
+TWEAK_NAME = 34306jtl
 
-dz_FILES = Tweak.x
-dz_CFLAGS = -fobjc-arc
+34306jtl_FILES = Tweak.x
+34306jtl_CFLAGS = -fobjc-arc
 
 include $(THEOS)/makefiles/tweak.mk
