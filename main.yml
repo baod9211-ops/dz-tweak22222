@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Install Theos
+      run: |
+        git clone --recursive https://github.com/theos/theos.git $HOME/theos
+        echo "$HOME/theos/bin" >> $GITHUB_PATH
+        echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+    
+    - name: Build Tweak
+      run: |
+        make clean
+        make
+    
+    - name: Upload .deb
+      uses: actions/upload-artifact@v4
+      with:
+        name: deb-package
+        path: ./packages/*.deb
